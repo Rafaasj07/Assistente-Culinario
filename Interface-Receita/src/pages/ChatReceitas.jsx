@@ -63,12 +63,19 @@ const ChatReceitas = () => {
 
     return (
         <div className="min-h-screen bg-[url('./imagens/Fundo.jpg')] bg-cover bg-center">
-            <div className="container mx-auto max-w-4xl px-4 py-10">
+            <div className="container mx-auto max-w-4xl px-4 py-10 ">
                 <header className="text-center mb-8">
-                    <h1 className="text-5xl font-bold bg-gradient-to-r from-orange-700 via-orange-500 to-orange-400 text-transparent bg-clip-text mb-2">
-                        Gerador de Receitas🥘
-                    </h1>
-                    <p className="text-white text-xl font-light">
+                    <div className="flex flex-col md:flex-row items-center justify-center">
+                        <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-orange-700 via-orange-500 to-orange-400 text-transparent bg-clip-text pb-3 md:pb-0 md:-mr-2">
+                            Gerador de Receitas
+                        </h1>
+                        <img
+                            src="./src/imagens/Logo.png"
+                            alt="Logo"
+                            className="w-30 h-30 object-contain pb-5"
+                        />
+                    </div>
+                    <p className="text-white text-base md:text-xl font-light -mt-6">
                         Assistente culinário para fazer receitas maravilhosas!
                     </p>
                 </header>
