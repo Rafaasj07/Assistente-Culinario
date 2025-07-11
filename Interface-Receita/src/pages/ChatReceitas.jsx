@@ -2,6 +2,7 @@ import { useState } from "react";
 import ListaMensagens from "../components/ListaMensagens";
 import ChatBox from '../components/ChatBox'; 
 import { api } from "../services/api";
+import logoDoSite from '../imagens/Logo.png';
 
 const ChatReceitas = () => {
     const [loading, setLoading] = useState(false)
@@ -69,8 +70,8 @@ const ChatReceitas = () => {
                             Gerador de Receitas
                         </h1>
                         <img
-                            src="./src/imagens/Logo.png"
-                            alt="Logo"
+                            src={logoDoSite}
+                            alt="Logo do Assistente Culinario"
                             className="w-30 h-30 object-contain pb-5"
                         />
                     </div>
