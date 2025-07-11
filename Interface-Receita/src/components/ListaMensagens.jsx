@@ -2,18 +2,22 @@ import { useEffect, useRef } from 'react';
 import Mensagem from './Mensagem';
 
 const ListaMensagens = ({ mensagens, chatActive, loading }) => {
-  const mensagemRef = useRef();
-
-  const scrollBaixo = () => {
-    mensagemRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const listaRef = useRef(null);
 
   useEffect(() => {
-    scrollBaixo();
+    if (listaRef.current) {
+      listaRef.current.scrollTo({
+        top: listaRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   }, [mensagens]);
 
   return (
-    <div className={`flex-1 p-4 space-y-4 bg-[url('./imagens/Tabua.png')] bg-cover bg-center ${chatActive ? 'overflow-y-auto' : 'overflow-y-hidden'}`}>
+    <div
+      ref={listaRef}
+      className={`flex-1 p-4 space-y-4 bg-[url('./imagens/Tabua.png')] bg-cover bg-center ${chatActive ? 'overflow-y-auto' : 'overflow-y-hidden'}`}
+    >
       {mensagens.map((mensagem) => (
         <Mensagem key={mensagem.id} mensagem={mensagem} />
       ))}
@@ -29,8 +33,6 @@ const ListaMensagens = ({ mensagens, chatActive, loading }) => {
           </div>
         </div>
       )}
-
-      <div ref={mensagemRef}></div>
     </div>
   );
 };

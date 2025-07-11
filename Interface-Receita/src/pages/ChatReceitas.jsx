@@ -89,6 +89,30 @@ const ChatReceitas = () => {
                     <ListaMensagens mensagens={mensagens} chatActive={chatActive} loading={loading} />
                     <ChatBox onEnviarMensagem={onEnviarMensagem} desabilitado={loading} />
                 </div>
+                {/* Rodapé */}
+                <footer className="w-full text-center pt-10 font-caveat flex flex-col items-center">
+                    <p className="text-gray-200 pb-4 text-xl sm:text-2xl md:text-2xl font-bold font-mono">
+                        Desenvolvido por Rafael Augusto
+                    </p>
+
+                    <a
+                        href="https://github.com/rafaasj07"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white transition-colors inline-block text-base sm:text-base md:text-lg font-mono pb-0.5"
+                    >
+                        GitHub
+                    </a>
+
+                    <a
+                        href="https://instagram.com/rafael_asj7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white transition-colors inline-block text-base sm:text-base md:text-lg font-mono"
+                    >
+                        Instagram
+                    </a>
+                </footer>
             </div>
         </div>
     );
