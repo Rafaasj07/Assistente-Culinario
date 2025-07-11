@@ -1,8 +1,7 @@
-// src/pages/ChatReceitas.jsx
 import { useState } from "react";
 import ListaMensagens from "../components/ListaMensagens";
-import ChatBox from "../components/chatBox";
-import { api } from "../services/api"
+import ChatBox from '../components/ChatBox'; 
+import { api } from "../services/api";
 
 const ChatReceitas = () => {
     const [loading, setLoading] = useState(false)
