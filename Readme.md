@@ -101,14 +101,3 @@ Execute o frontend:
 ```bash
 npm run dev
 ```
-
-Acesse em: `http://localhost:5173`
-
----
-
-## ☁️ Deploy
-
-Esta aplicação está hospedada na plataforma **[Render](https://render.com/)**:
-
-* **Backend:** como Web Service (porta 3001).
-* **Frontend:** como Static Site, se comunicando via variável `VITE_API_URL`.
