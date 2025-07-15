@@ -4,6 +4,9 @@ Bem-vindo ao Assistente Culinário AI, uma aplicação web interativa que funcio
 
 > ⚠️ **Atenção:** Como a API utilizada neste projeto é gratuita, ela possui um limite de uso e pode ficar temporariamente indisponível.
 
+**🔗 Acesse a aplicação ao vivo:**  
+**[https://meu-app-receitas.onrender.com](https://meu-app-receitas.onrender.com)**
+
 ---
 
 ## ✨ Funcionalidades
@@ -101,3 +104,14 @@ Execute o frontend:
 ```bash
 npm run dev
 ```
+
+Acesse em: `http://localhost:5173`
+
+---
+
+## ☁️ Deploy
+
+Esta aplicação está hospedada na plataforma **[Render](https://render.com/)**:
+
+* **Backend:** como Web Service (porta 3001).
+* **Frontend:** como Static Site, se comunicando via variável `VITE_API_URL`.
