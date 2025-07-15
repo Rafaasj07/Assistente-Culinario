@@ -1,0 +1,39 @@
+services:
+  # Serviço para a API (Backend)
+  - type: web
+    name: minha-api-receitas 
+    env: node
+    plan: free
+    rootDir: ./API
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: OPENROUTER_API_KEY
+        fromSecret: true 
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: meu-app-receitas 
+          property: url
+      - key: CORS_ORIGIN
+        fromService:
+          type: web
+          name: meu-app-receitas 
+          property: url
+
+  # Serviço para a Interface (Frontend)
+  - type: web
+    name: meu-app-receitas
+    env: static
+    plan: free
+    rootDir: ./Interface-Receita
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: minha-api-receitas 
+          property: url

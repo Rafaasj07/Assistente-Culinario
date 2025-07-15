@@ -5,7 +5,11 @@ import cors from 'cors'
 const app = express()
 const PORT = process.env.PORT || 3001;
 
-app.use(cors())
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || 'http://localhost:5173', // Permite o localhost para desenvolvimento e a URL do Render em produção
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json())
 

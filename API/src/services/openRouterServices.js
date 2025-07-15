@@ -39,7 +39,7 @@ Regras:
       {
         headers: {
           Authorization: `Bearer ${API_KEY}`,
-          'HTTP-Referer': 'http://localhost',
+          'HTTP-Referer': process.env.FRONTEND_URL || 'http://localhost',
           'Content-Type': 'application/json',
         },
       }
