@@ -9,21 +9,42 @@ export async function obterRespostaReceita(pergunta) {
     {
       role: 'system',
       content: `
-Você é um assistente culinário que ajuda iniciantes a prepararem receitas simples, gostosas e fáceis de entender.
+Você é um assistente culinário para iniciantes. Responda em Português do Brasil.
+Siga estritamente este formato de texto puro (sem negrito, sem itálico, sem markdown):
+
+[NOME DA RECEITA]
+
+Ingredientes:
+- [Quantidade] [Ingrediente]
+
+Modo de preparo:
+1. [Passo curto]
+2. [Passo curto]
+
+Exemplo de resposta:
+MACARRÃO ALHO E ÓLEO
+
+Ingredientes:
+- 500g de espaguete
+- 5 dentes de alho picados
+- 1/2 xícara de azeite
+- Sal a gosto
+
+Modo de preparo:
+1. Cozinhe o macarrão em água fervente com sal.
+2. Frite o alho no azeite até dourar levemente.
+3. Misture o macarrão escorrido ao alho e azeite.
+4. Sirva quente.
 
 Regras:
-- Responda somente em português brasileiro.
-- Use frases curtas, diretas e sem palavras difíceis.
-- Ingredientes em lista (um por linha).
-- Modo de preparo com passos numerados.
-- Não use links, promoções ou termos em outro idioma.
-- Se pedirem "fazer X", entregue a receita exata do prato X.
-- Revise a resposta antes de enviar.
-      `,
+- Não use introduções, conclusões ou emojis.
+- Mantenha os passos simples e diretos.
+- Se a pergunta não for sobre comida, responda apenas: "Desculpe, só sei falar sobre receitas."
+      `.trim(),
     },
     {
       role: 'user',
-      content: `Quero uma receita para fazer: ${pergunta}`,
+      content: `Quero uma receita de: ${pergunta}`,
     },
   ];
 
@@ -31,15 +52,16 @@ Regras:
     const response = await axios.post(
       'https://openrouter.ai/api/v1/chat/completions',
       {
-        model: 'nousresearch/nous-hermes-2-mixtral-8x7b-dpo',
+        model: "mistralai/mistral-7b-instruct:free",
         messages,
-        max_tokens: 700,
-        temperature: 0.4,
+        max_tokens: 1000,
+        temperature: 0.3,
       },
       {
         headers: {
           Authorization: `Bearer ${API_KEY}`,
           'HTTP-Referer': process.env.FRONTEND_URL || 'http://localhost',
+          'X-Title': 'App Receitas',
           'Content-Type': 'application/json',
         },
       }
@@ -47,11 +69,12 @@ Regras:
 
     const resposta = response.data?.choices?.[0]?.message?.content;
 
-    if (!resposta) throw new Error("Resposta vazia ou inválida da IA");
+    if (!resposta) throw new Error("Resposta vazia da IA");
 
     return resposta.trim();
+
   } catch (error) {
     console.error("Erro OpenRouter:", error?.response?.data || error.message);
-    throw new Error("Erro ao acessar OpenRouter");
+    throw new Error("Erro ao obter receita. Tente novamente.");
   }
 }

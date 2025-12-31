@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ListaMensagens from "../components/ListaMensagens";
-import ChatBox from '../components/ChatBox'; 
+import ChatBox from '../components/ChatBox';
 import { api } from "../services/api";
 import logoDoSite from '../imagens/Logo.png';
 
@@ -16,14 +16,12 @@ const ChatReceitas = () => {
 
     const [chatActive, setChatActive] = useState(false);
 
-    // Função para lidar com o mouse entrando na div do chat
     const handleChatEnter = () => {
-        setChatActive(true); // Define o chat como ativo
+        setChatActive(true);
     };
 
-    // Função para lidar com o mouse saindo da div do chat
     const handleChatLeave = () => {
-        setChatActive(false); // Define o chat como inativo
+        setChatActive(false);
     };
 
     const onEnviarMensagem = async (mensagem) => {
@@ -80,16 +78,14 @@ const ChatReceitas = () => {
                     </p>
                 </header>
 
-                {/* Adicione os manipuladores onMouseEnter e onMouseLeave */}
                 <div
                     className="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl h-[600px] border border-gray-500"
-                    onMouseEnter={handleChatEnter} // Ativa ao passar o mouse
-                    onMouseLeave={handleChatLeave} // Desativa ao tirar o mouse
+                    onMouseEnter={handleChatEnter}
+                    onMouseLeave={handleChatLeave}
                 >
                     <ListaMensagens mensagens={mensagens} chatActive={chatActive} loading={loading} />
                     <ChatBox onEnviarMensagem={onEnviarMensagem} desabilitado={loading} />
                 </div>
-                {/* Rodapé */}
                 <footer className="w-full text-center pt-10 font-caveat flex flex-col items-center">
                     <p className="text-gray-200 pb-4 text-xl sm:text-2xl md:text-2xl font-bold font-mono">
                         Desenvolvido por Rafael Augusto

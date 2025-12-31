@@ -18,7 +18,7 @@ const ChatBox = ({onEnviarMensagem, desabilitado}) => {
                 value={mensagem}
                 onChange={ (e) => setMensagem(e.target.value)}
                 placeholder="Digite o prato que deseja a receita"
-                className="flex-1 min-w-0 px-5 py-3 bg-white border border-gray-300 rounded-full shadow-sm focus:ring-2 outline-none focus: ring-orange-400"/> {/* Added min-w-0 */}
+                className="flex-1 min-w-0 px-5 py-3 bg-white border border-gray-300 rounded-full shadow-sm focus:ring-2 outline-none focus: ring-orange-400"/>
                 <button
                 type="submit"
                 disabled = {desabilitado}

@@ -7,21 +7,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Arquivos de build e dependências
+node_modules/
+dist/
+dist-ssr/
+
+# Arquivos de ambiente em qualquer pasta
+**/.env
+.env.*
 *.local
 
 # Editor directories and files
-.vscode/*
+.vscode/
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-# Ignorar arquivos de ambiente com chaves secretas
-.env

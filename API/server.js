@@ -6,7 +6,7 @@ const app = express()
 const PORT = process.env.PORT || 3001;
 
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173', // Permite o localhost para desenvolvimento e a URL do Render em produção
+  origin: process.env.CORS_ORIGIN || 'http://localhost:5173', 
 };
 
 app.use(cors(corsOptions));
