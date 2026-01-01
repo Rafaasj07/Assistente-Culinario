@@ -1,14 +1,6 @@
 import axios from 'axios'
 
-const getApiUrl = () => {
-    const envUrl = import.meta.env.VITE_API_URL
-    if (!envUrl) return ''
-    
-    const urlWithProtocol = envUrl.startsWith('http') ? envUrl : `https://${envUrl}`
-    return urlWithProtocol.endsWith('/') ? urlWithProtocol : `${urlWithProtocol}/`
-}
-
-const API_URL = getApiUrl()
+const API_URL = import.meta.env.VITE_API_URL
 
 export const api = async (pergunta) => {
     try {
