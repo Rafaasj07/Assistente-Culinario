@@ -1,6 +1,5 @@
-# Dev Receita
 services:
-  # Backend (API)
+  # Serviço Backend (API)
   - type: web
     name: minha-api-receitas
     env: node
@@ -11,23 +10,20 @@ services:
     envVars:
       - key: NODE_VERSION
         value: "20"
-
       - key: OPENROUTER_API_KEY
         sync: false
-
-      - key: FRONTEND_HOST
+      - key: FRONTEND_URL
         fromService:
           type: web
           name: meu-app-receitas
           property: host
-
       - key: CORS_ORIGIN
         fromService:
           type: web
           name: meu-app-receitas
           property: host
 
-  # Frontend (Interface)
+  # Serviço Frontend (Interface)
   - type: web
     name: meu-app-receitas
     env: static
@@ -35,7 +31,7 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     envVars:
-      - key: VITE_API_HOST
+      - key: VITE_API_URL
         fromService:
           type: web
           name: minha-api-receitas
