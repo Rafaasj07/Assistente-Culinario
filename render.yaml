@@ -17,19 +17,20 @@ services:
 
       - key: FRONTEND_HOST
         fromService:
-          type: static
+          type: web
           name: meu-app-receitas
           property: host
 
       - key: CORS_ORIGIN
         fromService:
-          type: static
+          type: web
           name: meu-app-receitas
           property: host
 
   # Frontend (Interface)
-  - type: static
+  - type: web
     name: meu-app-receitas
+    env: static
     rootDir: ./Interface-Receita
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
