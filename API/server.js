@@ -13,6 +13,7 @@ app.use(cors(corsOptions));
 
 app.use(express.json())
 
+//Rota Receitas
 app.use('/api/receitas', receitasRoute)
 app.listen(PORT, () =>{
     console.log(`Servidor rodando na porta ${PORT}`)
