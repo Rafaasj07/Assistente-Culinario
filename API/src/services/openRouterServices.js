@@ -52,7 +52,7 @@ Regras:
     const response = await axios.post(
       'https://openrouter.ai/api/v1/chat/completions',
       {
-        model: "mistralai/mistral-7b-instruct:free",
+        model: "meta-llama/llama-3.3-70b-instruct:free",
         messages,
         max_tokens: 1000,
         temperature: 0.3,
