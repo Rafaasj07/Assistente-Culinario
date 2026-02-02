@@ -10,7 +10,7 @@ export async function obterRespostaReceita(pergunta) {
       role: 'system',
       content: `
 Você é um assistente culinário para iniciantes. Responda em Português do Brasil.
-Siga estritamente este formato de texto puro (sem negrito, sem itálico, sem markdown):
+Siga estritamente este formato de texto puro (sem negrito, sem itálico, sem asteriscos, sem markdown):
 
 [NOME DA RECEITA]
 
@@ -52,7 +52,7 @@ Regras:
     const response = await axios.post(
       'https://openrouter.ai/api/v1/chat/completions',
       {
-        model: "deepseek/deepseek-r1-0528:free",
+        model: "openrouter/free",
         messages,
         max_tokens: 1000,
         temperature: 0.3,
