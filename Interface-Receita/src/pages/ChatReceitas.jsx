@@ -92,7 +92,7 @@ const ChatReceitas = () => {
                     </p>
 
                     <a
-                        href="https://github.com/rafaasj07"
+                        href="https://github.com/rafaelaugustodev"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white transition-colors inline-block text-base sm:text-base md:text-lg font-mono pb-0.5"
@@ -101,12 +101,12 @@ const ChatReceitas = () => {
                     </a>
 
                     <a
-                        href="https://instagram.com/rafael_asj7"
+                        href="https://www.linkedin.com/in/rafaelasjdev/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white transition-colors inline-block text-base sm:text-base md:text-lg font-mono"
                     >
-                        Instagram
+                        Linkedin
                     </a>
                 </footer>
             </div>
