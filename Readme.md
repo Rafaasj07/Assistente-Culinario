@@ -44,6 +44,7 @@ Este projeto é uma aplicação full-stack, com frontend moderno e backend robus
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/Rafaasj07/Assistente-Culinario.git
+https://github.com/rafaelaugustodev/Assistente-Culinario.git
 cd Assistente-Culinario
+
 
